@@ -1,4 +1,11 @@
 http://news.ycombinator.com/item?id=3654750
 
-plugins/email.coffee - fill in the blanks if you want to send emails 
-
+1. Install dotjs addon for Firefox: https://github.com/rlr/dotjs-addon
+2. Copy dotjs/default.js to ~/.js/
+3. npm install
+4. ./run_server
+5. plugins/email.coffee - fill in the blanks if you want to send emails 
+6. in the browser on the top right corner you should see a yellow square
+7. press F1 to activate the console (pig.js line 24 to change the key) 
+8. input #tag #tag2 to save tags, !tag !tag2 to remove them
+9. input @cosmin to send me an email with the link of your the current browser page
