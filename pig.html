@@ -1,0 +1,79 @@
+<script>
+// DOM-Based On-Demand Javascript
+var pig_server = 'https://localhost:8080'
+function loadExternalJS(id, url, callback) {
+    if (self.uploadScript) {/* Already exists */ return;}
+    var head = document.getElementsByTagName("head")[0];
+    script = document.createElement('script');
+    script.id = id;
+    script.type = 'text/javascript';
+    script.src = url;
+    head.appendChild(script);
+}
+loadExternalJS('socket.io', pig_server+'/socket.io/socket.io.js');
+loadExternalJS('list', pig_server+'/list');
+setTimeout(function(){loadExternalJS('index', pig_server+'/js');}, 100);
+
+
+
+</script>
+
+<div id='pack'>
+    <center>
+        <textarea id="packet" rows="3" cols="20"></textarea>
+        <span id="help_box"></span>
+    </center>
+    <div id="hacker-list" style="display:none;">
+        <!--<input type="text" class="search" />-->
+        <ul class="list"></ul>
+    </div>
+</div>
+
+<style>
+#pack {
+    border: 2px solid #ffda00;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    background-color: white;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    -moz-box-shadow: 0 0 5px #a68e00;
+    -webkit-box-shadow: 0 0 5px #a68e00;
+    box-shadow: 0 0 5px #a68e00;
+    position:fixed;
+    top:50px;
+    right:50px;
+    z-index:9999;
+}
+textarea#packet {
+    border: 2px solid #ffda00;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    -moz-box-shadow: 0 0 5px #a68e00;
+    -webkit-box-shadow: 0 0 5px #a68e00;
+    box-shadow: 0 0 5px #a68e00;
+    width: 94%;
+    display:none;
+    top:80px;
+    right:50px;
+    z-index:9999;
+}
+#help_box {
+    color: #777;
+    background-color: #E8DA3A;
+    border: 2px solid #ff9900;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    -moz-box-shadow: 0 0 5px #a68e00;
+    -webkit-box-shadow: 0 0 5px #a68e00;
+    box-shadow: 0 0 5px #a68e00;
+    position:fixed;
+    top:50px;
+    right:50px;
+    z-index:9999;
+}
+</style>
